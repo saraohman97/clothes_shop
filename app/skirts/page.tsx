@@ -31,10 +31,13 @@ const ShirtsPage = () => {
     <>
       <Hero />
 
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto relative px-4">
+        <div className="flex md:hidden gap-2 items-center text-sm mt-3 text-gray-400">
+          Home <BiChevronRight /> Shirts
+        </div>
         <div className="flex my-10">
           {/* sidebar */}
-          <div className="w-96 space-y-1">
+          <div className="w-96 space-y-1 max-md:hidden">
             <div className="flex gap-4 items-center text-sm mb-8">
               Home <BiChevronRight /> Shirts
             </div>
@@ -46,17 +49,19 @@ const ShirtsPage = () => {
 
           {/* main */}
           <div className="w-fit">
-            <div className="flex items-end gap-4 mb-4">
+            <div className="flex max-md:flex-col md:items-end gap-4 mb-4">
               <h1 className="text-3xl font-bold uppercase">Shirts</h1>
-              <div className="flex items-center gap-1">
-                Color
-                <div className="h-6 w-6 bg-transparent rounded-full border-4" />
-              </div>
-              <div className="flex items-center gap-1">
-                Sizes <BiChevronDown />
+              <div className="flex items-end gap-4">
+                <div className="flex items-center gap-1">
+                  Color
+                  <div className="h-6 w-6 bg-transparent rounded-full border-4" />
+                </div>
+                <div className="flex items-center gap-1">
+                  Sizes <BiChevronDown />
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-6 w-fit">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 w-fit">
               {/* item */}
               {newsItems.map((item) => (
                 <Link href="/123" key={item.name} className="relative group">
@@ -65,12 +70,12 @@ const ShirtsPage = () => {
                     alt=""
                     width={1000}
                     height={1000}
-                    className="w-full h-[400px] object-cover cursor-pointer"
+                    className="w-full md:h-[400px] object-cover cursor-pointer"
                   />
                   <p className="text-sm mt-2 ml-2">{item.name}</p>
                   <p className=" text-sm font-bold ml-2">{item.price} kr</p>
 
-                  <div className="h-10 w-10 bg-[#C2B280]/70 rounded-full flex items-center justify-center absolute right-2 top-96 hover:bg-[#C2B280] cursor-pointer">
+                  <div className="h-10 w-10 bg-[#C2B280]/70 rounded-full md:flex items-center justify-center hidden md:absolute right-2 top-96 hover:bg-[#C2B280] cursor-pointer">
                     <BiHeart size={25} />
                   </div>
                   <p className="absolute top-2 right-2 text-[#C2B280] uppercase invisible group-hover:visible cursor-pointer hover:underline transition-all duration-300">

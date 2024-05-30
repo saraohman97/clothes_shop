@@ -42,13 +42,13 @@ const SinglePage = () => {
 
   return (
     <>
-      <div className="max-w-screen-xl mx-auto mb-10">
-        <div className="flex gap-4 items-center text-sm mb-8">
+      <div className="max-w-screen-xl mx-auto mb-10 px-4 overflow-hidden">
+        <div className="flex gap-2 md:gap-4 items-center text-sm mb-8 max-md:text-gray-400">
           Home <BiChevronRight /> Shirts <BiChevronRight /> T-shirt, white
         </div>
         {newsItem.map((item) => (
-          <div key={item.name} className="flex gap-10">
-            <div className="flex items-start gap-4 w-2/3">
+          <div key={item.name} className="flex max-md:flex-col md:gap-10">
+            <div className="flex items-start gap-4 md:w-2/3">
               <Image
                 src={`/clothes/${item.image}`}
                 alt=""
@@ -97,7 +97,7 @@ const SinglePage = () => {
                 </div>
               </div>
 
-              <div className="my-10">
+              <div className="my-10 w-full">
                 {/* <div>Product info</div> */}
 
                 <Accordion type="single" collapsible className="w-full">
@@ -128,31 +128,31 @@ const SinglePage = () => {
         ))}
 
         <div className="mt-20">
-            <h2 className="text-2xl font-bold mb-4">Andra produkter</h2>
+          <h2 className="text-2xl font-bold mb-4">Andra produkter</h2>
 
-            <div className="grid grid-cols-4 gap-6 w-fit">
-              {/* item */}
-              {otherItems.map((item) => (
-                <Link href="/123" key={item.name} className="relative group">
-                  <Image
-                    src={`/clothes/${item.image}`}
-                    alt=""
-                    width={1000}
-                    height={1000}
-                    className="w-full h-[400px] object-cover cursor-pointer"
-                  />
-                  <p className="text-sm mt-2 ml-2">{item.name}</p>
-                  <p className=" text-sm font-bold ml-2">{item.price} kr</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-fit">
+            {/* item */}
+            {otherItems.map((item) => (
+              <Link href="/123" key={item.name} className="relative group">
+                <Image
+                  src={`/clothes/${item.image}`}
+                  alt=""
+                  width={1000}
+                  height={1000}
+                  className="w-full md:h-[400px] object-cover cursor-pointer"
+                />
+                <p className="text-sm mt-2 ml-2">{item.name}</p>
+                <p className=" text-sm font-bold ml-2">{item.price} kr</p>
 
-                  <div className="h-10 w-10 bg-[#C2B280]/70 rounded-full flex items-center justify-center absolute right-2 top-96 hover:bg-[#C2B280] cursor-pointer">
-                    <BiHeart size={25} />
-                  </div>
-                  <p className="absolute top-2 right-2 text-[#C2B280] uppercase invisible group-hover:visible cursor-pointer hover:underline transition-all duration-300">
-                    Visit!
-                  </p>
-                </Link>
-              ))}
-            </div>
+                <div className="h-10 w-10 bg-[#C2B280]/70 rounded-full mdflex items-center justify-center hidden md:absolute right-2 top-96 hover:bg-[#C2B280] cursor-pointer">
+                  <BiHeart size={25} />
+                </div>
+                <p className="absolute top-2 right-2 text-[#C2B280] uppercase invisible group-hover:visible cursor-pointer hover:underline transition-all duration-300">
+                  Visit!
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </>

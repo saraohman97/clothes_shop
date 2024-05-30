@@ -4,7 +4,7 @@ import { FaComments } from "react-icons/fa6";
 const Footer = () => {
     return ( 
         <div className="bg-[#90A276] text-xs">
-        <div className="max-w-screen-lg mx-auto py-10 grid grid-cols-3">
+        <div className="max-w-screen-lg mx-auto px-4 py-10 grid md:grid-cols-3 gap-10">
           <div>
             <p className="hover:underline cursor-pointer w-fit">
               Customer service
@@ -36,7 +36,7 @@ const Footer = () => {
           <div className="flex h-fit items-bottom">
             <input
               type="text"
-              className="border-b-2 border-black bg-transparent placeholder:text-black"
+              className="border-b-2 border-black bg-transparent placeholder:text-black w-full"
               placeholder="Email address..."
             />
             <button className="border-b-2 border-black font-bold uppercase text-xl">
