@@ -1,5 +1,6 @@
 import Hero from "@/components/hero";
 import Image from "next/image";
+import Link from "next/link";
 
 import { BiHeart } from "react-icons/bi";
 
@@ -36,7 +37,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {/* item */}
           {newsItems.map((item) => (
-            <div key={item.name} className="relative group">
+            <Link href="/123" key={item.name} className="relative group">
               <Image
                 src={`/clothes/${item.image}`}
                 alt=""
@@ -53,7 +54,7 @@ export default function Home() {
               <p className="absolute top-2 right-2 text-[#C2B280] uppercase invisible group-hover:visible cursor-pointer hover:underline transition-all duration-300">
                 Visit!
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -11,8 +11,8 @@ const Navbar = () => {
   return (
     <>
       {/* top navbar */}
-      <div className="bg-[#C2B280] w-full p-1 text-center text-sm max-md:hidden">
-        Get 15% off your next purchase by becoming a member $
+      <div className="bg-[#C2B280] w-full p-1 text-center text-xs md:text-sm">
+        Members get 15% of their next purchase
       </div>
 
       {/* navbar  */}
@@ -27,11 +27,11 @@ const Navbar = () => {
               Clothes
             </Link>
             <div className="hidden md:flex gap-4 font-bold">
-              <div>Shirts</div>
-              <div>Shorts</div>
-              <div>Shoes</div>
-              <div>Dresses</div>
-              <div>Underwear</div>
+              <Link href="/shirts">Shirts</Link>
+              <Link href="/shirts">Shorts</Link>
+              <Link href="/shirts">Shoes</Link>
+              <Link href="/shirts">Dresses</Link>
+              <Link href="/shirts">Underwear</Link>
             </div>
           </div>
 
@@ -48,10 +48,10 @@ const Navbar = () => {
               </div>
             </div>
 
-            <div className="flex items-bottom">
+            <div className="flex items-bottom w-full">
               <input
                 type="text"
-                className="border-b-2 border-black w-full"
+                className="border-b-2 border-black w-full rounded-none"
                 placeholder="Search..."
               />
               <button className="border-b-2 border-black">

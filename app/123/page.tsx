@@ -97,7 +97,7 @@ const SinglePage = () => {
                 </div>
               </div>
 
-              <div className="my-10 w-full">
+              <div className="mt-10 w-full">
                 {/* <div>Product info</div> */}
 
                 <Accordion type="single" collapsible className="w-full">
