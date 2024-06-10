@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
         <h1 className="text-5xl text-center uppercase">Sommar rea 2024</h1>
         <Link
-          href="/skirts"
+          href="/shirts"
           className="bg-white rounded py-2 px-4 shadow cursor-pointer hover:bg-[#C2B280]"
         >
           Shop now!
