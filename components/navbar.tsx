@@ -8,8 +8,12 @@ import {
   BiShoppingBag,
 } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
+import MainNav from "./main-nav";
+import getCategories from "@/actions/get-categories";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const categories = await getCategories();
+
   return (
     <>
       {/* top navbar */}
@@ -28,13 +32,7 @@ const Navbar = () => {
             >
               Clothes
             </Link>
-            <div className="hidden md:flex gap-4 font-bold">
-              <Link href="/shirts">Shirts</Link>
-              <Link href="/shirts">Shorts</Link>
-              <Link href="/shirts">Shoes</Link>
-              <Link href="/shirts">Dresses</Link>
-              <Link href="/shirts">Underwear</Link>
-            </div>
+            <MainNav data={categories} />
           </div>
 
           <div className="flex flex-col items-end gap-6">
@@ -50,22 +48,24 @@ const Navbar = () => {
                 <div className="invisible group-hover:visible absolute z-50 top-12 right-0 transition-all duration-500 bg-white shadow w-96">
                   {/* item */}
                   <div className="flex justify-between p-4">
-                  <div className="flex items-center gap-6">
-                    <Image
-                      src={`/clothes/shirt.jpg`}
-                      alt=""
-                      width={1000}
-                      height={1000}
-                      className="w-24 max-h-32 object-cover cursor-pointer"
-                    />
-                    <div>
-                      <p className="text-xl">T-shirt, white</p>
-                      <p className="text-sm font-bold">199 kr</p>
-                      <p className="text-sm">Amount: 1</p>
+                    <div className="flex items-center gap-6">
+                      <Image
+                        src={`/clothes/shirt.jpg`}
+                        alt=""
+                        width={1000}
+                        height={1000}
+                        className="w-24 max-h-32 object-cover cursor-pointer"
+                      />
+                      <div>
+                        <p className="text-xl">T-shirt, white</p>
+                        <p className="text-sm font-bold">199 kr</p>
+                        <p className="text-sm">Amount: 1</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="flex items-center gap-2 text-xs cursor-pointer h-fit">Remove <CgClose /></div>
+                    <div className="flex items-center gap-2 text-xs cursor-pointer h-fit">
+                      Remove <CgClose />
+                    </div>
                   </div>
 
                   <div className="p-4 border-t">
@@ -100,7 +100,9 @@ const Navbar = () => {
               </button>
 
               <div className="invisible group-focus-within:visible absolute z-40 top-12 right-0 transition-all duration-500 bg-white shadow w-96">
-                <div className="text-xs p-4 text-center">No result on &quot;  &ldquo;</div>
+                <div className="text-xs p-4 text-center">
+                  No result on &quot; &ldquo;
+                </div>
               </div>
             </div>
           </div>
