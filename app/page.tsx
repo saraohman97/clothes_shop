@@ -1,7 +1,6 @@
 import getBillboard from "@/actions/get-billboard";
 import getProducts from "@/actions/get-products";
 import Billboard from "@/components/billboard";
-import Hero from "@/components/hero";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +10,7 @@ export const revalidate = 0;
 
 const HomePage = async () => {
   const billboard = await getBillboard("6669ec32ef936fd07685c868");
-  const products = await getProducts({ isFeatured: true });
+  // const products = await getProducts({ isFeatured: true });
 
   const newsItems = [
     {
@@ -38,8 +37,8 @@ const HomePage = async () => {
 
   return (
     <>
-      {/* <Hero /> */}
       <Billboard data={billboard} />
+
       {/* showcase */}
       <div className="max-w-screen-xl mx-auto my-10 px-4">
         <h2 className="font-bold font-sans text-xl uppercase mb-4">Nyheter</h2>
