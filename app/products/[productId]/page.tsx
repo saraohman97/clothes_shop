@@ -1,16 +1,10 @@
 import getProduct from "@/actions/get-product";
 import getProducts from "@/actions/get-products";
-import Image from "next/image";
-import { BiChevronDown, BiChevronRight, BiHeart } from "react-icons/bi";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import Link from "next/link";
+import { BiChevronRight } from "react-icons/bi";
+
 import ProductList from "@/components/product-list";
 import Gallery from "@/components/gallery";
+import Info from "@/components/Info";
 
 // npm i @headlessui/react
 
@@ -26,14 +20,6 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
     categoryId: product?.category?.id,
   });
 
-  const newsItem = [
-    {
-      image: "shirt.jpg",
-      name: "T-shirt, white",
-      price: 100,
-    },
-  ];
-
   return (
     <>
       <div className="max-w-screen-xl mx-auto mb-10 px-4 overflow-hidden">
@@ -41,118 +27,17 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
           Home <BiChevronRight /> Shirts <BiChevronRight /> T-shirt, white
         </div>
 
-        {/* Gallery */}
-        <Gallery images={product.images} />
-        {/* {newsItem.map((item) => (
-          <div key={item.name} className="flex max-md:flex-col md:gap-10">
-            <div className="flex items-start gap-4 md:w-2/3">
-              <Image
-                src={`/clothes/${item.image}`}
-                alt=""
-                width={1000}
-                height={1000}
-                className="object-contain w-2/3"
-              />
-              <div className="w-1/3 space-y-4">
-                <Image
-                  src={`/clothes/shirt2.jpg`}
-                  alt=""
-                  width={1000}
-                  height={1000}
-                  className="object-cover w-full"
-                />
-                <Image
-                  src={`/clothes/shirt3.jpg`}
-                  alt=""
-                  width={1000}
-                  height={1000}
-                  className="object-cover"
-                />
-              </div>
-            </div>
+        {/* Gallery and product info */}
+        <div className="flex max-md:flex-col md:gap-10">
+          <Gallery images={product.images} />
+          <Info data={product} />
+        </div>
 
-            <div className="mt-10 w-[400px]">
-              <h1 className="text-2xl">{item.name}</h1>
-              <p className="font-bold">{item.price} kr</p>
-
-              <div className="flex items-end gap-4 my-6">
-                <div className="flex items-center gap-1">
-                  Color
-                  <div className="h-6 w-6 bg-transparent rounded-full border-4" />
-                </div>
-                <div className="flex items-center gap-1">
-                  Sizes <BiChevronDown />
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <button className="py-2 px-4 bg-[#C2B280]/70 hover:bg-[#C2B280] rounded">
-                  Buy
-                </button>
-                <div className="h-10 w-10 bg-[#C2B280]/70 rounded-full flex items-center justify-center hover:bg-[#C2B280] cursor-pointer">
-                  <BiHeart size={25} />
-                </div>
-              </div>
-
-              <div className="mt-10 w-full">
-
-                <Accordion type="single" collapsible className="w-full">
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger>Produkt beskrivning</AccordionTrigger>
-                    <AccordionContent>
-                      Den här t-shirten har en rund halsringning. Den har korta
-                      ärmar och en relaxed fit. Den här t-shirten kommer i vitt.
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="item-2">
-                    <AccordionTrigger>Material och skötselråd</AccordionTrigger>
-                    <AccordionContent>
-                      Komposition: <br /> Mudd: 95% <br /> Bomull Yttertyg: 100%
-                      <br /> Bomull <br /> Rib: 5% Elastan
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="item-3">
-                    <AccordionTrigger>Frakt info</AccordionTrigger>
-                    <AccordionContent>
-                      Betalnings metod, recensioner
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
-            </div>
-          </div>
-        ))}
-     */}
-
+        {/* Suggested products */}
         <div className="mt-20">
           <h2 className="text-2xl font-bold mb-4">Andra produkter</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-fit">
-            {/* item */}
-            {/* {suggestedProducts.map((item) => (
-              <Link
-                href={`/products/${item.id}`}
-                key={item.name}
-                className="relative group"
-              >
-                <Image
-                  src={`/${item.images}`}
-                  alt=""
-                  width={1000}
-                  height={1000}
-                  className="w-full md:h-[400px] object-cover cursor-pointer"
-                />
-                <p className="text-sm mt-2 ml-2">{item.name}</p>
-                <p className=" text-sm font-bold ml-2">{item.price} kr</p>
-
-                <div className="h-10 w-10 bg-[#C2B280]/70 rounded-full mdflex items-center justify-center hidden md:absolute right-2 top-96 hover:bg-[#C2B280] cursor-pointer">
-                  <BiHeart size={25} />
-                </div>
-                <p className="absolute top-2 right-2 text-[#C2B280] uppercase invisible group-hover:visible cursor-pointer hover:underline transition-all duration-300">
-                  Visit!
-                </p>
-              </Link>
-            ))} */}
             <ProductList items={suggestedProducts} />
           </div>
         </div>
