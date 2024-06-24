@@ -35,7 +35,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
   return (
     <div className="flex">
       <div className="w-96">
-        <MobileFilters sizes={sizes} colors={colors} /> 
+        {/* <MobileFilters sizes={sizes} colors={colors} />  */}
         <Filter valueKey="sizeId" name="Sizes" data={sizes} />
         <Filter valueKey="colorId" name="Colors" data={colors} />
       </div>
