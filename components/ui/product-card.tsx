@@ -18,12 +18,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const cart = useCart()
   const router = useRouter()
 
-    const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
-      event.stopPropagation()
-
-      previewModal.onOpen(data)
-    }
-
     const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
       event.stopPropagation()
 

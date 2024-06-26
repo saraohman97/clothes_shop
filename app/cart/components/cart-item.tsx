@@ -1,6 +1,5 @@
 import { toast } from "react-hot-toast";
 
-import IconButton from "@/components/ui/icon-button";
 import { Product } from "@/types";
 import Image from "next/image";
 import useCart from "@/hooks/use-cart";
@@ -33,7 +32,9 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
           <p>{data.price}</p>
         </div>
       </div>
-      <button onClick={onRemove} className="text-sm underline">Remove</button>
+      <button onClick={onRemove} className="text-sm underline">
+        Remove
+      </button>
     </div>
   );
 };

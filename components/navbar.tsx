@@ -3,7 +3,6 @@ import { BiHeart, BiLogIn, BiMenu, BiSearch, BiShoppingBag } from "react-icons/b
 import MainNav from "./main-nav";
 import getCategories from "@/actions/get-categories";
 import Cart from "./cart";
-import useCart from "@/hooks/use-cart";
 
 const Navbar = async () => {
   const categories = await getCategories();
